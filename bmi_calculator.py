@@ -24,7 +24,6 @@ def calculate_bmi():
 
         result_label.config(text=f"BMI: {bmi:.2f}\nCategory: {category}")
 
-        # Save to file
         with open("bmi_data.txt", "a") as file:
             file.write(f"Weight: {weight} kg, Height: {height} m, BMI: {bmi:.2f}, Category: {category}\n")
 
@@ -41,29 +40,23 @@ def view_history():
     except FileNotFoundError:
         messagebox.showinfo("No History", "No history found yet!")
 
-# GUI Setup
 root = tk.Tk()
 root.title("BMI Calculator")
 
-# Weight input
 tk.Label(root, text="Enter weight (kg):").grid(row=0, column=0, padx=10, pady=10)
 weight_entry = tk.Entry(root)
 weight_entry.grid(row=0, column=1, padx=10, pady=10)
 
-# Height input
 tk.Label(root, text="Enter height (m):").grid(row=1, column=0, padx=10, pady=10)
 height_entry = tk.Entry(root)
 height_entry.grid(row=1, column=1, padx=10, pady=10)
 
-# Calculate button
 calc_button = tk.Button(root, text="Calculate BMI", command=calculate_bmi)
 calc_button.grid(row=2, column=0, columnspan=2, pady=10)
 
-# Result label
 result_label = tk.Label(root, text="BMI: \nCategory: ")
 result_label.grid(row=3, column=0, columnspan=2, pady=10)
 
-# View history button
 history_button = tk.Button(root, text="View History", command=view_history)
 history_button.grid(row=4, column=0, columnspan=2, pady=10)
 
