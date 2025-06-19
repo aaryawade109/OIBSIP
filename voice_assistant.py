@@ -5,16 +5,13 @@ import pyttsx3
 import datetime
 import webbrowser
 
-# Initialize recognizer & engine
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 
-# Function to speak text
 def speak(text):
     engine.say(text)
     engine.runAndWait()
 
-# Function to listen & recognize voice
 def listen():
     with sr.Microphone() as source:
         print("Listening...")
@@ -27,7 +24,6 @@ def listen():
             return ""
         return command.lower()
 
-# Main function
 def run_assistant():
     speak("Hello, how can I help you?")
     while True:
@@ -54,6 +50,5 @@ def run_assistant():
             url = f"https://www.google.com/search?q={command}"
             webbrowser.open(url)
 
-# Run
 if __name__ == "__main__":
     run_assistant()
