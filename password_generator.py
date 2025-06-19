@@ -44,16 +44,13 @@ def copy_to_clipboard():
     else:
         messagebox.showwarning("No Password", "Generate a password first!")
 
-# GUI Setup
 root = tk.Tk()
 root.title("Password Generator")
 
-# Length input
 tk.Label(root, text="Password Length:").grid(row=0, column=0, padx=10, pady=10)
 length_entry = tk.Entry(root)
 length_entry.grid(row=0, column=1, padx=10, pady=10)
 
-# Checkboxes
 letters_var = tk.BooleanVar()
 numbers_var = tk.BooleanVar()
 symbols_var = tk.BooleanVar()
@@ -62,15 +59,12 @@ tk.Checkbutton(root, text="Include Letters", variable=letters_var).grid(row=1, c
 tk.Checkbutton(root, text="Include Numbers", variable=numbers_var).grid(row=2, column=0, sticky="w", padx=10)
 tk.Checkbutton(root, text="Include Symbols", variable=symbols_var).grid(row=3, column=0, sticky="w", padx=10)
 
-# Generate button
 generate_button = tk.Button(root, text="Generate Password", command=generate_password)
 generate_button.grid(row=4, column=0, columnspan=2, pady=10)
 
-# Password display
 password_entry = tk.Entry(root, width=40)
 password_entry.grid(row=5, column=0, columnspan=2, padx=10, pady=10)
 
-# Copy button
 copy_button = tk.Button(root, text="Copy to Clipboard", command=copy_to_clipboard)
 copy_button.grid(row=6, column=0, columnspan=2, pady=10)
 
